@@ -47,7 +47,7 @@ const TaskManager = () => {
   //get tasks from backend
   async function fetchTasks() {
     try {
-      const response = await fetch("https://taskbackend-jefc.onrender.com//api/task/alltasks", {
+      const response = await fetch("https://taskbackend-jefc.onrender.com/api/task/alltasks", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

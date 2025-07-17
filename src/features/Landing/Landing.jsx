@@ -39,7 +39,7 @@ const Landing = () => {
     setIsLoading(true);
     setError('');
     try {
-      const response = await fetch('http://localhost:3000/api/user/login', {
+      const response = await fetch('https://taskbackend-jefc.onrender.com/api/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const Landing = () => {
     setIsLoading(true);
     setError('');
     try {
-      const response = await fetch('http://localhost:3000/api/user/register', {
+      const response = await fetch('https://taskbackend-jefc.onrender.com/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

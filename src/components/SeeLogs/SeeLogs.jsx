@@ -53,8 +53,8 @@ const SeeLogs = ({setSeeLogs}) => {
           <ul className={styles.logList}>
             {logs.map((log) => (
               <li key={log._id} className={styles.logItem}>
-                <p><strong>Task Title:</strong> {log.taskTitle}</p>
-                <p><strong>User Name:</strong> {log.userName}</p>
+                <p><strong>Task Title:</strong> {log.taskId.title}</p>
+                <p><strong>User Name:</strong> {log.userId.name}</p>
                 <p><strong>Old Status:</strong> {log.oldStatus}</p>
                 <p><strong>New Status:</strong> {log.newStatus}</p>
               </li>
