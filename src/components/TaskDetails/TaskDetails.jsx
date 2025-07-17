@@ -8,7 +8,7 @@ const TaskDetails = ({task, setSeeDetails,fetchTasks,socketRef}) => {
   //delete task 
   async function handleDelete() {
     try {
-      const response = await fetch(`http://localhost:3000/api/task/delete/${task._id}`, {
+      const response = await fetch(`https://taskbackend-jefc.onrender.com/api/task/delete/${task._id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

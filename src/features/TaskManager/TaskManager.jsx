@@ -47,7 +47,7 @@ const TaskManager = () => {
   //get tasks from backend
   async function fetchTasks() {
     try {
-      const response = await fetch("http://localhost:3000/api/task/alltasks", {
+      const response = await fetch("https://taskbackend-jefc.onrender.com//api/task/alltasks", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -100,7 +100,7 @@ const TaskManager = () => {
   }
   //connect to socket.io server
   useEffect(() => {
-    socketRef.current = io("http://localhost:3000", {
+    socketRef.current = io("https://taskbackend-jefc.onrender.com/", {
       transports: ["websocket"],
       withCredentials: true,
     });
@@ -257,7 +257,7 @@ const TaskManager = () => {
   
   async function handleUpdateTaskStatus(taskId, newStatus) {
     try {
-      const response = await fetch(`http://localhost:3000/api/task/update/${taskId}`, {
+      const response = await fetch(`https://taskbackend-jefc.onrender.com/api/task/update/${taskId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

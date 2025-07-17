@@ -9,7 +9,7 @@ const SeeLogs = ({setSeeLogs}) => {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/task/logs', {
+        const response = await fetch('https://taskbackend-jefc.onrender.com/api/task/logs', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

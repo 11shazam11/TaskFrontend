@@ -34,7 +34,7 @@ const NewTaskModal = ({ showModal, onClose, fetchTasks, socketRef }) => {
 
   const createTask = async (taskData) => {
     try {
-      const response = await fetch('http://localhost:3000/api/task/newtask', {
+      const response = await fetch('https://taskbackend-jefc.onrender.com/api/task/newtask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const NewTaskModal = ({ showModal, onClose, fetchTasks, socketRef }) => {
 
   const getAllUsers = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/user', {
+      const response = await fetch('https://taskbackend-jefc.onrender.com/api/user', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
