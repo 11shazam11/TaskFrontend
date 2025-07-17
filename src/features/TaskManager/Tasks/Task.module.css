@@ -1,0 +1,22 @@
+*{
+    color: aliceblue;
+}
+.container{
+   margin: 1vw;
+   width: 80%;
+   text-align: center;
+   max-height: 20%;
+   padding: 1vw;
+   box-shadow: 1px 1px 10px rgba(1, 1, 1, 0.5);
+   border-radius: 10px;
+   transition: transform 0.2s ease;
+   
+   /* touch-action: none; */
+   
+}
+/* .container[data-dragging="true"] {
+   
+  transform: scale(0.5);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  z-index: 10;
+} */
