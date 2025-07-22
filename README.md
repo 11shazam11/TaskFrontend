@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is the frontend application for [Project Name - To be filled]. It provides a user interface for [Briefly describe the application's purpose and features].
+This is the frontend application for Frontend Application. It provides a user interface for Real-time task management system with dynamic updates and version control.
 
 ## Installation
 
@@ -32,7 +32,7 @@ npm start
 yarn start
 ```
 
-Open your browser and go to [Application URL - To be filled].
+Open your browser and go to https://taskbackend-jefc.onrender.com/.
 
 ## Available Scripts
 
@@ -55,6 +55,9 @@ We welcome contributions! Please follow these guidelines:
 3.  Make your changes and commit them.
 4.  Submit a pull request.
 
+## License
+
+No license
 
 ## Contact
 
