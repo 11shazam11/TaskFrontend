@@ -22,16 +22,7 @@ const Tasks = ({task,seeDetails,setSeeDetails,setSelectedTask}) => {
   }
 
   return (
-    <div 
-      className={styles.container} 
-      onClick={handleClick} 
-      ref={setNodeRef} 
-      {...attributes} 
-      {...listeners} 
-      data-dragging={transform ? true : undefined}
-      data-status={task.status}
-      style={dndStyle}
-    >
+    <div className={styles.container} onClick={handleClick} ref={setNodeRef} {...attributes} {...listeners} data-dragging={transform ? true : undefined} style={dndStyle}>
       <h1>{task.title}</h1>
       <p>{task.status}</p>
       

@@ -1,4 +1,3 @@
-/* Futuristic New Task Modal */
 .container {
   position: fixed;
   top: 0;
@@ -6,309 +5,120 @@
   height: 100vh;
   width: 100vw;
   z-index: 999;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(10px);
-  animation: modal-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes modal-fade-in {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-  }
-  to {
-    opacity: 1;
-    backdrop-filter: blur(10px);
-  }
+  backdrop-filter: blur(5px);
 }
 
 .modalContainer {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
   width: 90%;
-  max-width: 550px;
-  padding: 3rem 2.5rem;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  animation: modal-slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: scaleIn 0.3s ease-out;
+}
+.modalContainer select option{
+  background-color: #009f7a;
 }
 
-@keyframes modal-slide-up {
+@keyframes scaleIn {
   from {
+    transform: scale(0.95);
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
   }
   to {
+    transform: scale(1);
     opacity: 1;
-    transform: translateY(0) scale(1);
   }
-}
-
-/* Animated Border */
-.modalContainer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 24px;
-  padding: 2px;
-  background: linear-gradient(45deg, 
-    var(--accent-cyan), 
-    var(--accent-purple), 
-    var(--accent-pink), 
-    var(--accent-cyan));
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  animation: border-rotate 4s linear infinite;
-  opacity: 0.6;
-}
-
-@keyframes border-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.modalContainer select option {
-  background-color: #1a1a2e;
-  color: white;
-  border: none;
 }
 
 h2 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  font-family: 'Orbitron', monospace;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-align: center;
-  position: relative;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
-  border-radius: 3px;
-  box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
 }
 
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .inputGroup {
   width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
-}
-
-.inputGroup label {
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--accent-cyan);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: 'Orbitron', monospace;
 }
 
 .inputGroup input,
 .inputGroup textarea,
 .inputGroup select {
   width: 100%;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 245, 255, 0.3);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: none;
   outline: none;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   font-size: 1rem;
-  font-family: 'Rajdhani', sans-serif;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+  transition: background 0.3s ease;
 }
 
-.inputGroup textarea {
-  min-height: 120px;
-  resize: vertical;
-  font-family: 'Rajdhani', sans-serif;
+.inputGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .inputGroup input::placeholder,
 .inputGroup textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: #dcdcdc;
 }
 
 .inputGroup input:focus,
 .inputGroup textarea:focus,
 .inputGroup select:focus {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--accent-cyan);
-  box-shadow: 
-    0 0 0 3px rgba(0, 245, 255, 0.1),
-    0 0 20px rgba(0, 245, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-/* Floating Label Effect */
-.inputGroup input:focus + label,
-.inputGroup textarea:focus + label,
-.inputGroup select:focus + label {
-  color: var(--accent-purple);
-  text-shadow: 0 0 10px var(--accent-purple);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 button[type='submit'] {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #00b894;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   color: white;
-  font-weight: 700;
-  font-family: 'Orbitron', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  margin-top: 1rem;
-  box-shadow: 
-    0 8px 25px rgba(0, 245, 255, 0.3),
-    0 0 20px rgba(0, 245, 255, 0.2);
-}
-
-/* Shimmer Effect */
-button[type='submit']::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.6s;
-}
-
-button[type='submit']:hover::before {
-  left: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
 }
 
 button[type='submit']:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 
-    0 15px 35px rgba(0, 245, 255, 0.4),
-    0 0 30px rgba(0, 245, 255, 0.3);
-}
-
-button[type='submit']:active {
-  transform: translateY(-1px) scale(1.01);
+  background-color: #009f7a;
+  transform: translateY(-2px);
 }
 
 .closeButton {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 107, 107, 0.3);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
   color: #ff6b6b;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2rem;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
 }
 
 .closeButton:hover {
-  background: rgba(255, 107, 107, 0.1);
-  border-color: #ff6b6b;
-  transform: rotate(90deg) scale(1.1);
-  box-shadow: 
-    0 0 20px rgba(255, 107, 107, 0.4),
-    0 8px 25px rgba(255, 107, 107, 0.2);
-}
-
-/* Floating Particles Effect */
-.modalContainer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-  animation: float-particles 6s ease-in-out infinite;
-}
-
-@keyframes float-particles {
-  0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
-  50% { opacity: 0.6; transform: scale(1.05) rotate(180deg); }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .modalContainer {
-    width: 95%;
-    padding: 2rem 1.5rem;
-  }
-  
-  h2 {
-    font-size: 1.6rem;
-  }
-  
-  .inputGroup input,
-  .inputGroup textarea,
-  .inputGroup select {
-    padding: 0.8rem 1rem;
-    font-size: 0.95rem;
-  }
-  
-  button[type='submit'] {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .closeButton {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
-  }
+  transform: rotate(90deg) scale(1.2);
 }

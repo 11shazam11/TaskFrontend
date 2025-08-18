@@ -1,39 +1,14 @@
-/* Futuristic Task Manager */
+
 .container {
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-    linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
-  min-height: 100vh;
+  background: linear-gradient(to bottom right, #004e92, #000428);
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   color: white;
-  font-family: 'Rajdhani', sans-serif;
-}
-
-/* Animated Grid Background */
-.container::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 245, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 245, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: grid-float 15s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes grid-float {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(40px, 40px); }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .taskContainer {
@@ -44,343 +19,105 @@
   padding: 2rem;
   gap: 2rem;
   overflow-y: auto;
-  position: relative;
-  z-index: 1;
 }
 
 .tbox {
   flex: 1;
-  min-width: 320px;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(25px);
-  border-radius: 20px;
+  min-width: 30%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-/* Unique Colors for Each Column */
-.tbox:nth-child(1) {
-  border-color: rgba(0, 245, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(0, 245, 255, 0.1),
-    inset 0 1px 0 rgba(0, 245, 255, 0.1);
-}
-
-.tbox:nth-child(2) {
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(139, 92, 246, 0.1),
-    inset 0 1px 0 rgba(139, 92, 246, 0.1);
-}
-
-.tbox:nth-child(3) {
-  border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(16, 185, 129, 0.1),
-    inset 0 1px 0 rgba(16, 185, 129, 0.1);
-}
-
-/* Animated Borders */
-.tbox::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-  padding: 1px;
-  background: linear-gradient(45deg, transparent, var(--accent-cyan), transparent);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.tbox:nth-child(1)::before {
-  background: linear-gradient(45deg, transparent, var(--accent-cyan), transparent);
-}
-
-.tbox:nth-child(2)::before {
-  background: linear-gradient(45deg, transparent, var(--accent-purple), transparent);
-}
-
-.tbox:nth-child(3)::before {
-  background: linear-gradient(45deg, transparent, var(--accent-green), transparent);
-}
-
-.tbox:hover::before {
-  opacity: 1;
-  animation: border-glow 2s linear infinite;
-}
-
-@keyframes border-glow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
 }
 
 .tbox:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-.tbox:nth-child(1):hover {
-  box-shadow: 
-    0 20px 40px rgba(0, 245, 255, 0.2),
-    0 0 30px rgba(0, 245, 255, 0.1);
-}
-
-.tbox:nth-child(2):hover {
-  box-shadow: 
-    0 20px 40px rgba(139, 92, 246, 0.2),
-    0 0 30px rgba(139, 92, 246, 0.1);
-}
-
-.tbox:nth-child(3):hover {
-  box-shadow: 
-    0 20px 40px rgba(16, 185, 129, 0.2),
-    0 0 30px rgba(16, 185, 129, 0.1);
-}
-
-.tbox h1 {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  position: relative;
-}
-
-.tbox:nth-child(1) h1 {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
-}
-
-.tbox:nth-child(2) h1 {
-  color: var(--accent-purple);
-  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-}
-
-.tbox:nth-child(3) h1 {
-  color: var(--accent-green);
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-}
-
-.tbox h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 2px;
-  border-radius: 2px;
-}
-
-.tbox:nth-child(1) h1::after {
-  background: var(--accent-cyan);
-  box-shadow: 0 0 10px var(--accent-cyan);
-}
-
-.tbox:nth-child(2) h1::after {
-  background: var(--accent-purple);
-  box-shadow: 0 0 10px var(--accent-purple);
-}
-
-.tbox:nth-child(3) h1::after {
-  background: var(--accent-green);
-  box-shadow: 0 0 10px var(--accent-green);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .collapseButton {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
   color: #fff;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
 }
 
 .collapseButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent-cyan);
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+  transform: scale(1.2);
 }
 
 .verticalBox {
   text-align: center;
-  padding: 3rem 1rem;
-  font-family: 'Orbitron', monospace;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.box {
-  min-height: 200px;
-  padding: 1rem 0;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-/* Drop Zone Indicators */
-.box[data-droppable="true"] {
-  background: rgba(0, 245, 255, 0.05);
-  border: 2px dashed rgba(0, 245, 255, 0.3);
-}
-
-/* Floating Action Buttons */
-.newTaskButton,
-.seeLogsButton {
-  position: fixed;
-  padding: 1rem 1.5rem;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  font-family: 'Orbitron', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(20px);
-  z-index: 100;
-  overflow: hidden;
-  position: relative;
+  font-size: 1.2rem;
+  color: #fff;
+  padding: 2rem 0;
 }
 
 .newTaskButton {
+  position: fixed;
   bottom: 2rem;
   left: 2rem;
-  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
+  padding: 0.75rem 1.5rem;
+  background-color: #00b894;
   color: white;
-  border: 1px solid rgba(0, 245, 255, 0.3);
-  box-shadow: 
-    0 8px 25px rgba(0, 245, 255, 0.3),
-    0 0 20px rgba(0, 245, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
 }
-
-.seeLogsButton {
+.seeLogsButton{
+   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: linear-gradient(45deg, var(--accent-purple), var(--accent-pink));
+  padding: 0.75rem 1.5rem;
+  background-color: #00b894;
   color: white;
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  box-shadow: 
-    0 8px 25px rgba(139, 92, 246, 0.3),
-    0 0 20px rgba(139, 92, 246, 0.2);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
 }
-
-/* Shimmer Effect */
-.newTaskButton::before,
-.seeLogsButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.6s;
+.seeLogsButton:hover{
+   background-color: #00a383;
+  transform: translateY(-3px);
 }
-
-.newTaskButton:hover::before,
-.seeLogsButton:hover::before {
-  left: 100%;
-}
-
 .newTaskButton:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 
-    0 15px 35px rgba(0, 245, 255, 0.4),
-    0 0 30px rgba(0, 245, 255, 0.3);
+  background-color: #00a383;
+  transform: translateY(-3px);
 }
 
-.seeLogsButton:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 
-    0 15px 35px rgba(139, 92, 246, 0.4),
-    0 0 30px rgba(139, 92, 246, 0.3);
+.addTaskButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(9, 132, 227, 0.4);
 }
 
-/* Pulse Animation for Buttons */
-.newTaskButton,
-.seeLogsButton {
-  animation: button-pulse 3s infinite;
-}
-
-@keyframes button-pulse {
-  0%, 100% { box-shadow: 
-    0 8px 25px rgba(0, 245, 255, 0.3),
-    0 0 20px rgba(0, 245, 255, 0.2); }
-  50% { box-shadow: 
-    0 8px 25px rgba(0, 245, 255, 0.5),
-    0 0 30px rgba(0, 245, 255, 0.4); }
-}
-
-.seeLogsButton {
-  animation: button-pulse-purple 3s infinite;
-}
-
-@keyframes button-pulse-purple {
-  0%, 100% { box-shadow: 
-    0 8px 25px rgba(139, 92, 246, 0.3),
-    0 0 20px rgba(139, 92, 246, 0.2); }
-  50% { box-shadow: 
-    0 8px 25px rgba(139, 92, 246, 0.5),
-    0 0 30px rgba(139, 92, 246, 0.4); }
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .taskContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tbox {
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .taskContainer {
-    padding: 1rem;
-  }
-  
-  .newTaskButton,
-  .seeLogsButton {
-    padding: 0.8rem 1.2rem;
-    font-size: 0.9rem;
-  }
-  
-  .newTaskButton {
-    bottom: 1rem;
-    left: 1rem;
-  }
-  
-  .seeLogsButton {
-    bottom: 1rem;
-    right: 1rem;
-  }
+.addTaskButton:hover {
+  background-color: #0864b3;
+  transform: translateY(-3px);
 }
